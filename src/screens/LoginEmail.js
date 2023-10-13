@@ -1,88 +1,86 @@
-import { View, Image, Text, StyleSheet, TextInput, Pressable} from 'react-native'
-import React, {useCallback} from 'react'
-import { useFonts } from 'expo-font';
-import * as SplashScreen from 'expo-splash-screen';
+import React from 'react'
+import { View, Image, Text, StyleSheet, TextInput, TouchableOpacity, ImageBackground, Dimensions} from 'react-native';
 
-// SplashScreen.preventAutoHideAsync();
+const {width, height} = Dimensions.get('screen')
 
 const LoginEmail = () => {
 
-  // const [fontsLoaded] = useFonts({
-  //   'Poppins-Bold': require('../../assets/fonts/Poppins-Bold.ttf'),
-  // });
-
-  // const onLayoutRootView = useCallback(async () => {
-  //   if (fontsLoaded) {
-  //     await SplashScreen.hideAsync();
-  //   }
-  // }, [fontsLoaded]);
-
-  // if (!fontsLoaded) {
-  //   return null;
-  // }
-
   return (
-    <View style={login_style.container}>
+    <ImageBackground source={require('../../assets/images/Background.png')} style={styles.container} resizeMode="cover">
       <Image style={{alignSelf: 'center'}} source={require('../../assets/images/logo.png')}/>
-      <Text style={login_style.heading}>Welcome to CyberSpot</Text>
+      <Text style={styles.heading}>Welcome to CyberSpot</Text>
 
-    <View style={login_style.inputContainer}>
-        <Text style={login_style.label}>Username</Text>
-        <TextInput style={login_style.input} placeholder="Enter your username" placeholderTextColor='#9E9E9E'/>
+      {/* <View style={login_style.inputContainer}><Text style={login_style.label}>USERNAME</Text>
+      <TextInput
+        style={login_style.input}
+      /></View>
+      
+
+      <Text style={login_style.label}>PASSWORD</Text>
+      <TextInput
+        style={login_style.input}/> */}
+
+    <View style={styles.inputContainer}>
+        <Text style={styles.label}>Username</Text>
+        <TextInput style={styles.input} placeholder="Enter your username" placeholderTextColor='white'/>
       </View>
 
-      <View style={login_style.inputContainer}>
-        <Text style={login_style.label}>Password</Text>
-        <TextInput style={login_style.input} placeholder="Enter your password" placeholderTextColor='#9E9E9E' secureTextEntry={true} />
+      <View style={styles.inputContainer}>
+        <Text style={styles.label}>Password</Text>
+        <TextInput style={styles.input} placeholder="Enter your password" placeholderTextColor='white' secureTextEntry={true} />
       </View>
 
-      <View style={login_style.checkboxContainer}>
-        <Text style={login_style.checkboxLabel}>Remember me</Text>
-        <Text style={login_style.forgotPasswordLabel}>Forgot password</Text>
+      <View style={styles.checkboxContainer}>
+        <Text style={styles.checkboxLabel}>Remember me</Text>
+        <Text style={styles.forgotPasswordLabel}>Forgot password</Text>
       </View>
 
-      <Pressable style={login_style.button} >
-      <Text style={login_style.butonText}>Sign In</Text>
-    </Pressable>
+      <TouchableOpacity style={styles.button} >
+        <Text style={styles.butonText}>Sign In</Text>
+      </TouchableOpacity>
 
-    <View style={login_style.textLineContainer}>
-        <Text style={login_style.textLineText}>Don't have an account?</Text>
-        <Text style={login_style.signUpLink}> Sign Up</Text>
+      <View style={styles.textLineContainer}>
+        <Text style={styles.textLineText}>Don't have an account?</Text>
+        <Text style={styles.signUpLink}> Sign Up</Text>
       </View>
-    </View>
+    </ImageBackground>
   )
 }
 
 
-const login_style = StyleSheet.create({
+const styles = StyleSheet.create({
 container: {
   flex: 1,
   alignItems: 'center',
-    justifyContent: 'center',
-  backgroundColor: "black",
-  width: '100%'
+  justifyContent: 'center',
+  width: width,
+  height: height,
+  backgroundColor: '#07161B',
 },
 
 inputContainer:{
   margin: 10
 },
   heading: {
-    
     fontSize: 24,
     lineHeight: 36,
     color: "white",
-    fontWeight: "bold",
-    marginBottom: 40    
-
+    fontFamily: 'PoppinsSemiBold'
   },
   label: {
     fontSize: 13,
     lineHeight: 20,
     color: "#FFFFFF"
   },
-
-
-
+  input: {
+    width: '90%',
+    borderWidth: 1,
+    borderColor: 'gray',
+    borderRadius: 5,
+    padding: 10,
+    fontSize: 16,
+    color: "#FFFFFF",
+  },
   inputContainer: {
     margin: 10,
   },
