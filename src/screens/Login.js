@@ -7,27 +7,17 @@ const Login = () => {
 
   return (
     <ImageBackground source={require('../../assets/images/Background.png')} style={styles.container} resizeMode="cover">
-      <Image style={{alignSelf: 'center'}} source={require('../../assets/logo.png')}/>
+      <Image style={{alignSelf: 'center'}} source={require('../../assets/images/logo.png')}/>
       <Text style={styles.heading}>Welcome to CyberSpot</Text>
 
-      {/* <View style={login_style.inputContainer}><Text style={login_style.label}>USERNAME</Text>
-      <TextInput
-        style={login_style.input}
-      /></View>
-      
-
-      <Text style={login_style.label}>PASSWORD</Text>
-      <TextInput
-        style={login_style.input}/> */}
-
     <View style={styles.inputContainer}>
-        <Text style={styles.label}>Username</Text>
-        <TextInput style={styles.input} placeholder="Enter your username" placeholderTextColor='white'/>
+        <Text style={styles.label}>USERNAME</Text>
+        <TextInput style={styles.input} placeholder="Enter username or email or mobile" placeholderTextColor='rgba(255, 255, 255, 0.4)'/>
       </View>
 
       <View style={styles.inputContainer}>
-        <Text style={styles.label}>Password</Text>
-        <TextInput style={styles.input} placeholder="Enter your password" placeholderTextColor='white' secureTextEntry={true} />
+        <Text style={styles.label}>PASSWORD</Text>
+        <TextInput style={styles.input} placeholder="Enter password" placeholderTextColor='rgba(255, 255, 255, 0.4)' secureTextEntry={true} />
       </View>
 
       <View style={styles.checkboxContainer}>
@@ -72,39 +62,35 @@ inputContainer:{
     lineHeight: 20,
     color: "#FFFFFF"
   },
-  input: {
-    width: '90%',
-    borderWidth: 1,
-    borderColor: 'gray',
-    borderRadius: 5,
-    padding: 10,
-    fontSize: 16,
-    color: "#FFFFFF",
-  },
+
   inputContainer: {
     margin: 10,
   },
   label: {
     color: '#CDCDCD',
     marginLeft: 0, 
+    fontFamily: 'PoppinsMedium',
+    fontWeight: '500',
+    letterSpacing: 4
   },
   input: {
-    width: 250, 
-    height: 40,
+    width: 300, 
+    height: 48,
     borderWidth: 1,
-    borderColor: 'gray',
+    borderColor: '#0BA89D',
     borderRadius: 5,
     padding: 10,
     fontSize: 13,
-    color: "#FFFFFF",
+    color: "rgba(255, 255, 255, 0.4)",
     marginTop: 5,
+    fontFamily: 'PoppinsRegular'
   },
 
   checkboxContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    width: 250, 
+    width: 300, 
   },
   checkboxLabelContainer: {
     flex: 1,
@@ -120,7 +106,7 @@ inputContainer:{
   button: {
     alignItems: 'center',
     justifyContent: 'center',
-    width: 250,
+    width: 300,
     backgroundColor: '#0BA99F',
     borderRadius: 9,
     marginTop: 40,
@@ -129,7 +115,7 @@ inputContainer:{
 
   butonText: {
     lineHeight: 21,
-    fontWeight: 'bold',
+    fontWeight: '600',
     letterSpacing: 0.25,
     color: 'white',
     fontSize: 16

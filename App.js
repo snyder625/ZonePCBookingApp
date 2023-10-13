@@ -4,6 +4,7 @@ import Login from "./src/screens/Login"
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
+import Signup from './src/screens/Signup';
 
 
 // SplashScreen.preventAutoHideAsync();
@@ -43,7 +44,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <StatusBar style="light" />
-      <Login />
+      <Signup />
     </View>
   );
 }
