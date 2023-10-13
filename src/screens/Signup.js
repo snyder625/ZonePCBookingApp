@@ -3,45 +3,47 @@ import { View, Image, Text, StyleSheet, TextInput, TouchableOpacity, ImageBackgr
 
 const {width, height} = Dimensions.get('screen')
 
-const LoginEmail = () => {
+const Signup = () => {
 
   return (
     <ImageBackground source={require('../../assets/images/Background.png')} style={styles.container} resizeMode="cover">
       <Image style={{alignSelf: 'center'}} source={require('../../assets/images/logo.png')}/>
       <Text style={styles.heading}>Welcome to CyberSpot</Text>
 
-      {/* <View style={login_style.inputContainer}><Text style={login_style.label}>USERNAME</Text>
-      <TextInput
-        style={login_style.input}
-      /></View>
-      
-
-      <Text style={login_style.label}>PASSWORD</Text>
-      <TextInput
-        style={login_style.input}/> */}
+    <View style={styles.inputContainer}>
+        <Text style={styles.label}>FULL NAME</Text>
+        <TextInput style={styles.input} placeholder="Enter username or email or mobile" placeholderTextColor='rgba(255, 255, 255, 0.4)'/>
+      </View>
 
     <View style={styles.inputContainer}>
-        <Text style={styles.label}>Username</Text>
-        <TextInput style={styles.input} placeholder="Enter your username" placeholderTextColor='white'/>
+        <Text style={styles.label}>EMAIL ADDRESS</Text>
+        <TextInput style={styles.input} keyboardType='email-address' placeholder="Enter username or email or mobile" placeholderTextColor='rgba(255, 255, 255, 0.4)'/>
+      </View>
+
+    <View style={styles.inputContainer}>
+        <Text style={styles.label}>MOBILE NUMBER</Text>
+        <TextInput style={styles.input} placeholder="Enter username or email or mobile" placeholderTextColor='rgba(255, 255, 255, 0.4)' keyboardType='numeric'/>
       </View>
 
       <View style={styles.inputContainer}>
-        <Text style={styles.label}>Password</Text>
-        <TextInput style={styles.input} placeholder="Enter your password" placeholderTextColor='white' secureTextEntry={true} />
+        <Text style={styles.label}>PASSWORD</Text>
+        <TextInput style={styles.input} placeholder="Enter password" placeholderTextColor='rgba(255, 255, 255, 0.4)' secureTextEntry={true} />
       </View>
 
-      <View style={styles.checkboxContainer}>
-        <Text style={styles.checkboxLabel}>Remember me</Text>
-        <Text style={styles.forgotPasswordLabel}>Forgot password</Text>
-      </View>
+      <View style={styles.terms}>
+  <Text style={styles.termsText}>
+    I have read & agreed to CyberSpot{' '}
+    <Text style={styles.linkText}>Privacy Policy, Terms & Condition</Text>
+  </Text>
+</View>
 
       <TouchableOpacity style={styles.button} >
-        <Text style={styles.butonText}>Sign In</Text>
+        <Text style={styles.butonText}>Sign Up</Text>
       </TouchableOpacity>
 
       <View style={styles.textLineContainer}>
-        <Text style={styles.textLineText}>Don't have an account?</Text>
-        <Text style={styles.signUpLink}> Sign Up</Text>
+        <Text style={styles.textLineText}>Already have an account? </Text>
+        <Text style={styles.SignupUpLink}>Log in</Text>
       </View>
     </ImageBackground>
   )
@@ -72,46 +74,47 @@ inputContainer:{
     lineHeight: 20,
     color: "#FFFFFF"
   },
-  input: {
-    width: '90%',
-    borderWidth: 1,
-    borderColor: 'gray',
-    borderRadius: 5,
-    padding: 10,
-    fontSize: 16,
-    color: "#FFFFFF",
-  },
+
   inputContainer: {
-    margin: 10,
+    margin: 5,
   },
   label: {
     color: '#CDCDCD',
     marginLeft: 0, 
+    fontFamily: 'PoppinsMedium',
+    fontWeight: '500',
   },
   input: {
     width: 300, 
-    height: 48,
+    height: 40,
     borderWidth: 1,
     borderColor: '#0BA89D',
     borderRadius: 5,
     padding: 10,
     fontSize: 13,
-    color: "#9E9E9E",
+    color: "rgba(255, 255, 255, 0.4)",
     marginTop: 5,
+    fontFamily: 'PoppinsRegular'
   },
 
-  checkboxContainer: {
+  terms: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    width: 300, 
+  justifyContent: 'center', 
+  alignItems: 'center', 
+  marginTop: 5,
+  width: 300,
   },
-  checkboxLabelContainer: {
-    flex: 1,
+  termsText: {
+    color: 'rgba(61, 115, 127, 1)',
+    fontSize: 10,
+    fontFamily: 'PoppinsRegular', 
   },
-  checkboxLabel: {
-    color: 'white',
+  linkText: {
+    color: 'rgba(11, 168, 157, 1)',
+    fontSize: 10, 
+    fontFamily: 'PoppinsRegular', 
   },
+
   forgotPasswordLabel: {
     color: '#0BA99F',
     textAlign: 'right',
@@ -129,8 +132,8 @@ inputContainer:{
 
   butonText: {
     lineHeight: 21,
-    fontWeight: '600',
     letterSpacing: 0.25,
+    fontFamily: 'PoppinsSemiBold',
     color: 'white',
     fontSize: 16
   },
@@ -142,13 +145,13 @@ inputContainer:{
     marginTop: 10, 
   },
   textLineText: {
-    color: '#81818A',
+    color: 'rgba(61, 115, 127, 1)',
   },
-  signUpLink: {
-    color: '#1DAEFF', 
+  SignupUpLink: {
+    color: 'rgba(11, 168, 157, 1)', 
   },
 
   
 })
 
-export default LoginEmail
+export default Signup

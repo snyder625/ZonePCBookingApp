@@ -1,10 +1,10 @@
 import React, { useCallback } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import Login from "./src/screens/LoginEmail"
+import Login from "./src/screens/Login"
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
-import LoginEmail from './src/screens/LoginEmail';
+import Signup from './src/screens/Signup';
 
 
 // SplashScreen.preventAutoHideAsync();
@@ -44,7 +44,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <StatusBar style="light" />
-      <LoginEmail />
+      <Signup />
     </View>
   );
 }
