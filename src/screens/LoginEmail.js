@@ -5,7 +5,7 @@ import * as SplashScreen from 'expo-splash-screen';
 
 // SplashScreen.preventAutoHideAsync();
 
-const Login = () => {
+const LoginEmail = () => {
 
   // const [fontsLoaded] = useFonts({
   //   'Poppins-Bold': require('../../assets/fonts/Poppins-Bold.ttf'),
@@ -23,27 +23,17 @@ const Login = () => {
 
   return (
     <View style={login_style.container}>
-      <Image style={{alignSelf: 'center'}} source={require('../../assets/logo.png')}/>
+      <Image style={{alignSelf: 'center'}} source={require('../../assets/images/logo.png')}/>
       <Text style={login_style.heading}>Welcome to CyberSpot</Text>
-
-      {/* <View style={login_style.inputContainer}><Text style={login_style.label}>USERNAME</Text>
-      <TextInput
-        style={login_style.input}
-      /></View>
-      
-
-      <Text style={login_style.label}>PASSWORD</Text>
-      <TextInput
-        style={login_style.input}/> */}
 
     <View style={login_style.inputContainer}>
         <Text style={login_style.label}>Username</Text>
-        <TextInput style={login_style.input} placeholder="Enter your username" placeholderTextColor='white'/>
+        <TextInput style={login_style.input} placeholder="Enter your username" placeholderTextColor='#9E9E9E'/>
       </View>
 
       <View style={login_style.inputContainer}>
         <Text style={login_style.label}>Password</Text>
-        <TextInput style={login_style.input} placeholder="Enter your password" placeholderTextColor='white' secureTextEntry={true} />
+        <TextInput style={login_style.input} placeholder="Enter your password" placeholderTextColor='#9E9E9E' secureTextEntry={true} />
       </View>
 
       <View style={login_style.checkboxContainer}>
@@ -81,8 +71,8 @@ inputContainer:{
     fontSize: 24,
     lineHeight: 36,
     color: "white",
-    fontWeight: "bold"
-    
+    fontWeight: "bold",
+    marginBottom: 40    
 
   },
   label: {
@@ -90,15 +80,7 @@ inputContainer:{
     lineHeight: 20,
     color: "#FFFFFF"
   },
-  input: {
-    width: '70%',
-    borderWidth: 1,
-    borderColor: 'gray',
-    borderRadius: 5,
-    padding: 10,
-    fontSize: 16,
-    color: "#FFFFFF"
-  },
+
 
 
   inputContainer: {
@@ -109,14 +91,14 @@ inputContainer:{
     marginLeft: 0, 
   },
   input: {
-    width: 250, 
-    height: 40,
+    width: 300, 
+    height: 48,
     borderWidth: 1,
-    borderColor: 'gray',
+    borderColor: '#0BA89D',
     borderRadius: 5,
     padding: 10,
     fontSize: 13,
-    color: "#FFFFFF",
+    color: "#9E9E9E",
     marginTop: 5,
   },
 
@@ -124,7 +106,7 @@ inputContainer:{
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    width: 250, 
+    width: 300, 
   },
   checkboxLabelContainer: {
     flex: 1,
@@ -140,7 +122,7 @@ inputContainer:{
   button: {
     alignItems: 'center',
     justifyContent: 'center',
-    width: 250,
+    width: 300,
     backgroundColor: '#0BA99F',
     borderRadius: 9,
     marginTop: 40,
@@ -149,7 +131,7 @@ inputContainer:{
 
   butonText: {
     lineHeight: 21,
-    fontWeight: 'bold',
+    fontWeight: '600',
     letterSpacing: 0.25,
     color: 'white',
     fontSize: 16
@@ -171,4 +153,4 @@ inputContainer:{
   
 })
 
-export default Login
+export default LoginEmail
