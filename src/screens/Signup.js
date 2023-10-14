@@ -1,9 +1,30 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import { View, Image, Text, StyleSheet, TextInput, TouchableOpacity, ImageBackground, Dimensions} from 'react-native';
+import axios from 'axios';
 
 const {width, height} = Dimensions.get('screen')
 
 const Signup = () => {
+
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [mobileNumber, setMobileNumber] = useState('')
+  const [password, setPassword] = useState('')
+
+  const submitHandler = async () => {
+    try {
+      const response = await axios.post('http://127.0.0.1:5000/api/users', {
+        name: name,
+        email: email,
+        mobileNumber: mobileNumber,
+        password: password,
+      });
+
+      console.log('Registration success:', response.data);
+    } catch (error) {
+      console.error('Registration error:', error);
+    }
+  }
 
   return (
     <ImageBackground source={require('../../assets/images/Background.png')} style={styles.container} resizeMode="cover">
@@ -12,22 +33,22 @@ const Signup = () => {
 
     <View style={styles.inputContainer}>
         <Text style={styles.label}>FULL NAME</Text>
-        <TextInput style={styles.input} placeholder="Enter username or email or mobile" placeholderTextColor='rgba(255, 255, 255, 0.4)'/>
+        <TextInput style={styles.input} placeholder="Enter name" placeholderTextColor='rgba(255, 255, 255, 0.4)' value={name} onChangeText={(text) => setName(text)} />
       </View>
 
     <View style={styles.inputContainer}>
         <Text style={styles.label}>EMAIL ADDRESS</Text>
-        <TextInput style={styles.input} keyboardType='email-address' placeholder="Enter username or email or mobile" placeholderTextColor='rgba(255, 255, 255, 0.4)'/>
+        <TextInput style={styles.input} keyboardType='email-address' placeholder="Enter username or email or mobile" placeholderTextColor='rgba(255, 255, 255, 0.4)' value={email} onChangeText={(text) => setEmail(text)} />
       </View>
 
     <View style={styles.inputContainer}>
         <Text style={styles.label}>MOBILE NUMBER</Text>
-        <TextInput style={styles.input} placeholder="Enter username or email or mobile" placeholderTextColor='rgba(255, 255, 255, 0.4)' keyboardType='numeric'/>
+        <TextInput style={styles.input} placeholder="Enter username or email or mobile" placeholderTextColor='rgba(255, 255, 255, 0.4)' keyboardType='numeric' value={mobileNumber} onChangeText={(text) => setMobileNumber(text)}/>
       </View>
 
       <View style={styles.inputContainer}>
         <Text style={styles.label}>PASSWORD</Text>
-        <TextInput style={styles.input} placeholder="Enter password" placeholderTextColor='rgba(255, 255, 255, 0.4)' secureTextEntry={true} />
+        <TextInput style={styles.input} placeholder="Enter password" placeholderTextColor='rgba(255, 255, 255, 0.4)' secureTextEntry={true} value={password} onChangeText={(text) => setPassword(text)} />
       </View>
 
       <View style={styles.terms}>
@@ -37,7 +58,7 @@ const Signup = () => {
   </Text>
 </View>
 
-      <TouchableOpacity style={styles.button} >
+      <TouchableOpacity style={styles.button} onPress={submitHandler} >
         <Text style={styles.butonText}>Sign Up</Text>
       </TouchableOpacity>
 
