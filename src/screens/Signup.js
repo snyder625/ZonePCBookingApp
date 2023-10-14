@@ -13,7 +13,7 @@ const Signup = ({navigation}) => {
 
   const submitHandler = async () => {
     try {
-      const response = await axios.post('http://127.0.0.1:5000/api/users', {
+      const response = await axios.post('https://cybersoft.cyclic.app/api/users', {
         name: name,
         email: email,
         mobileNumber: mobileNumber,
@@ -90,7 +90,7 @@ inputContainer:{
     fontSize: 24,
     lineHeight: 36,
     color: "white",
-    fontFamily: 'PoppinsSemiBold'
+    // fontFamily: 'PoppinsSemiBold'
   },
   label: {
     fontSize: 13,
@@ -104,7 +104,7 @@ inputContainer:{
   label: {
     color: '#CDCDCD',
     marginLeft: 0, 
-    fontFamily: 'PoppinsMedium',
+    // fontFamily: 'PoppinsMedium',
     fontWeight: '500',
   },
   input: {
@@ -117,7 +117,7 @@ inputContainer:{
     fontSize: 13,
     color: "rgba(255, 255, 255, 0.4)",
     marginTop: 5,
-    fontFamily: 'PoppinsRegular'
+    // fontFamily: 'PoppinsRegular'
   },
 
   terms: {
@@ -130,12 +130,12 @@ inputContainer:{
   termsText: {
     color: 'rgba(61, 115, 127, 1)',
     fontSize: 10,
-    fontFamily: 'PoppinsRegular', 
+    // fontFamily: 'PoppinsRegular', 
   },
   linkText: {
     color: 'rgba(11, 168, 157, 1)',
     fontSize: 10, 
-    fontFamily: 'PoppinsRegular', 
+    // fontFamily: 'PoppinsRegular', 
   },
 
   forgotPasswordLabel: {
@@ -156,7 +156,7 @@ inputContainer:{
   butonText: {
     lineHeight: 21,
     letterSpacing: 0.25,
-    fontFamily: 'PoppinsSemiBold',
+    // fontFamily: 'PoppinsSemiBold',
     color: 'white',
     fontSize: 16
   },

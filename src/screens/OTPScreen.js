@@ -127,4 +127,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default OTPScreen;
+export default OTPScreen
