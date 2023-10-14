@@ -1,24 +1,69 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react'
+import React, {useState} from 'react'
 import { View, Image, Text, StyleSheet, TextInput, TouchableOpacity, ImageBackground, Dimensions} from 'react-native';
+import axios from 'axios';
 
 const {width, height} = Dimensions.get('screen')
 
 const Login = ({navigation}) => {
+
+  const [userInput, setUserInput] = useState('');
+  const [isEmail, setIsEmail] = useState(true);
+  const [password, setPassword] = useState('')
+
+  const handleInputChange = (text) => {
+    setUserInput(text);
+    // Check if the entered text contains the "@" symbol to identify it as an email
+    if (text.includes('@')) {
+      setIsEmail(true);
+    } else {
+      setIsEmail(false);
+    }
+  };
+
+  const submitHandler = () => {
+    const apiUrl = 'https://cybersoft.cyclic.app/api/users/login';
+  const data = {
+    password: password, // Assuming the password is the entered value
+  };
+
+  // Check if it's an email or mobile number and set the data accordingly
+  if (isEmail) {
+    data.email = userInput;
+  } else {
+    data.mobileNumber = userInput;
+  }
+
+  axios.post(apiUrl, data)
+    .then((response) => {
+      console.log('Login successful:', response.data);
+    })
+    .catch((error) => {
+      console.error('Login failed:', error);
+    });
+
+  }
+
   return (
     <ImageBackground source={require('../../assets/images/Background.png')} style={styles.container} resizeMode="cover">
       <StatusBar style='light' />
       <Image style={{alignSelf: 'center'}} source={require('../../assets/images/logo.png')}/>
       <Text style={styles.heading}>Welcome to CyberSpot</Text>
 
-    <View style={styles.inputContainer}>
-        <Text style={styles.label}>USERNAME</Text>
-        <TextInput style={styles.input} placeholder="Enter username or email or mobile" placeholderTextColor='rgba(255, 255, 255, 0.4)'/>
+      <View style={styles.inputContainer}>
+        <Text style={styles.label}>EMAIL OR MOBILE</Text>
+        <TextInput
+          style={styles.input}
+          placeholder= "Enter email or mobile number"
+          placeholderTextColor='rgba(255, 255, 255, 0.4)'
+          value={userInput}
+          onChangeText={handleInputChange}
+        />
       </View>
 
       <View style={styles.inputContainer}>
         <Text style={styles.label}>PASSWORD</Text>
-        <TextInput style={styles.input} placeholder="Enter password" placeholderTextColor='rgba(255, 255, 255, 0.4)' secureTextEntry={true} />
+        <TextInput style={styles.input} placeholder="Enter password" placeholderTextColor='rgba(255, 255, 255, 0.4)' secureTextEntry={true} value={password} onChangeText={(text) => setPassword(text)} />
       </View>
 
       <View style={styles.checkboxContainer}>
@@ -26,7 +71,7 @@ const Login = ({navigation}) => {
         <Text style={styles.forgotPasswordLabel}>Forgot password</Text>
       </View>
 
-      <TouchableOpacity style={styles.button} >
+      <TouchableOpacity style={styles.button} onPress={submitHandler}>
         <Text style={styles.butonText}>Sign In</Text>
       </TouchableOpacity>
 
@@ -58,7 +103,7 @@ inputContainer:{
     fontSize: 24,
     lineHeight: 36,
     color: "white",
-    fontFamily: 'PoppinsSemiBold'
+    // fontFamily: 'PoppinsSemiBold'
   },
   label: {
     fontSize: 13,
@@ -72,7 +117,7 @@ inputContainer:{
   label: {
     color: '#CDCDCD',
     marginLeft: 0, 
-    fontFamily: 'PoppinsMedium',
+    // fontFamily: 'PoppinsMedium',
     fontWeight: '500',
     letterSpacing: 4
   },
@@ -86,7 +131,7 @@ inputContainer:{
     fontSize: 13,
     color: "rgba(255, 255, 255, 0.4)",
     marginTop: 5,
-    fontFamily: 'PoppinsRegular'
+    // fontFamily: 'PoppinsRegular'
   },
 
   checkboxContainer: {
@@ -140,4 +185,4 @@ inputContainer:{
   
 })
 
-export default Login
+export default Login;

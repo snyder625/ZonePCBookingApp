@@ -1,9 +1,30 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import { View, Image, Text, StyleSheet, TextInput, TouchableOpacity, ImageBackground, Dimensions} from 'react-native';
+import axios from 'axios';
 
 const {width, height} = Dimensions.get('screen')
 
 const Signup = ({navigation}) => {
+
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [mobileNumber, setMobileNumber] = useState('')
+  const [password, setPassword] = useState('')
+
+  const submitHandler = async () => {
+    try {
+      const response = await axios.post('https://cybersoft.cyclic.app/api/users', {
+        name: name,
+        email: email,
+        mobileNumber: mobileNumber,
+        password: password,
+      });
+
+      console.log('Registration success:', response.data);
+    } catch (error) {
+      console.error('Registration error:', error);
+    }
+  }
 
   return (
     <ImageBackground source={require('../../assets/images/Background.png')} style={styles.container} resizeMode="cover">
@@ -12,22 +33,22 @@ const Signup = ({navigation}) => {
 
     <View style={styles.inputContainer}>
         <Text style={styles.label}>FULL NAME</Text>
-        <TextInput style={styles.input} placeholder="Enter username or email or mobile" placeholderTextColor='rgba(255, 255, 255, 0.4)'/>
+        <TextInput style={styles.input} placeholder="Enter name" placeholderTextColor='rgba(255, 255, 255, 0.4)' value={name} onChangeText={(text) => setName(text)} />
       </View>
 
     <View style={styles.inputContainer}>
         <Text style={styles.label}>EMAIL ADDRESS</Text>
-        <TextInput style={styles.input} keyboardType='email-address' placeholder="Enter username or email or mobile" placeholderTextColor='rgba(255, 255, 255, 0.4)'/>
+        <TextInput style={styles.input} keyboardType='email-address' placeholder="Enter username or email or mobile" placeholderTextColor='rgba(255, 255, 255, 0.4)' value={email} onChangeText={(text) => setEmail(text)} />
       </View>
 
     <View style={styles.inputContainer}>
         <Text style={styles.label}>MOBILE NUMBER</Text>
-        <TextInput style={styles.input} placeholder="Enter username or email or mobile" placeholderTextColor='rgba(255, 255, 255, 0.4)' keyboardType='numeric'/>
+        <TextInput style={styles.input} placeholder="Enter username or email or mobile" placeholderTextColor='rgba(255, 255, 255, 0.4)' keyboardType='numeric' value={mobileNumber} onChangeText={(text) => setMobileNumber(text)}/>
       </View>
 
       <View style={styles.inputContainer}>
         <Text style={styles.label}>PASSWORD</Text>
-        <TextInput style={styles.input} placeholder="Enter password" placeholderTextColor='rgba(255, 255, 255, 0.4)' secureTextEntry={true} />
+        <TextInput style={styles.input} placeholder="Enter password" placeholderTextColor='rgba(255, 255, 255, 0.4)' secureTextEntry={true} value={password} onChangeText={(text) => setPassword(text)} />
       </View>
 
       <View style={styles.terms}>
@@ -37,7 +58,7 @@ const Signup = ({navigation}) => {
         </Text>
       </View>
 
-      <TouchableOpacity style={styles.button} >
+      <TouchableOpacity style={styles.button} onPress={submitHandler} >
         <Text style={styles.butonText}>Sign Up</Text>
       </TouchableOpacity>
 
@@ -69,7 +90,7 @@ inputContainer:{
     fontSize: 24,
     lineHeight: 36,
     color: "white",
-    fontFamily: 'PoppinsSemiBold'
+    // fontFamily: 'PoppinsSemiBold'
   },
   label: {
     fontSize: 13,
@@ -83,7 +104,7 @@ inputContainer:{
   label: {
     color: '#CDCDCD',
     marginLeft: 0, 
-    fontFamily: 'PoppinsMedium',
+    // fontFamily: 'PoppinsMedium',
     fontWeight: '500',
   },
   input: {
@@ -96,7 +117,7 @@ inputContainer:{
     fontSize: 13,
     color: "rgba(255, 255, 255, 0.4)",
     marginTop: 5,
-    fontFamily: 'PoppinsRegular'
+    // fontFamily: 'PoppinsRegular'
   },
 
   terms: {
@@ -109,12 +130,12 @@ inputContainer:{
   termsText: {
     color: 'rgba(61, 115, 127, 1)',
     fontSize: 10,
-    fontFamily: 'PoppinsRegular', 
+    // fontFamily: 'PoppinsRegular', 
   },
   linkText: {
     color: 'rgba(11, 168, 157, 1)',
     fontSize: 10, 
-    fontFamily: 'PoppinsRegular', 
+    // fontFamily: 'PoppinsRegular', 
   },
 
   forgotPasswordLabel: {
@@ -135,7 +156,7 @@ inputContainer:{
   butonText: {
     lineHeight: 21,
     letterSpacing: 0.25,
-    fontFamily: 'PoppinsSemiBold',
+    // fontFamily: 'PoppinsSemiBold',
     color: 'white',
     fontSize: 16
   },
