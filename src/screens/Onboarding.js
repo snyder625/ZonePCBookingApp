@@ -38,14 +38,14 @@ const Onboarding = ({navigation}) => {
         decelerationRate="fast"
         overScrollMode="never"
         showsHorizontalScrollIndicator={false}
-        keyboardShouldPersistTaps="handled"
+        keyboardShouldPersistTaps={"always"}
       />
       <View style={styles.inputContainer}>
         <Image source={require('../../assets/images/Vector.png')} style={{ marginRight: 10 }} />
         <TextInput placeholder='Mobile number' placeholderTextColor='#9E9E9E' style={{ flex: 1, width: '90%' }} />
       </View>
       <TouchableOpacity style={styles.startButton} onPress={()=> navigation.navigate('Signin')}>
-        <Text style={{color: '#fff'}}>Get Started</Text>
+        <Text style={{color: '#fff', fontSize: 16}}>Get Started</Text>
       </TouchableOpacity>
       <Text style={{color: '#3D737F'}}>Already have an account? <Text style={{color: '#0BA89D', textDecorationLine: 'underline'}}>Login</Text></Text>
     </ImageBackground>
@@ -58,7 +58,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "flex-end", 
     backgroundColor: '#000', 
-    gap: 20
+    gap: 20,
+    height: height,
+    width: width
   },
   inputContainer: {
     backgroundColor: '#07161B',
