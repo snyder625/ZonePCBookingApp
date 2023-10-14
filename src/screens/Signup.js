@@ -4,7 +4,7 @@ import axios from 'axios';
 
 const {width, height} = Dimensions.get('screen')
 
-const Signup = () => {
+const Signup = ({navigation}) => {
 
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
@@ -52,11 +52,11 @@ const Signup = () => {
       </View>
 
       <View style={styles.terms}>
-  <Text style={styles.termsText}>
-    I have read & agreed to CyberSpot{' '}
-    <Text style={styles.linkText}>Privacy Policy, Terms & Condition</Text>
-  </Text>
-</View>
+        <Text style={styles.termsText}>
+          I have read & agreed to CyberSpot{' '}
+          <Text style={styles.linkText}>Privacy Policy, Terms & Condition</Text>
+        </Text>
+      </View>
 
       <TouchableOpacity style={styles.button} onPress={submitHandler} >
         <Text style={styles.butonText}>Sign Up</Text>
@@ -64,7 +64,9 @@ const Signup = () => {
 
       <View style={styles.textLineContainer}>
         <Text style={styles.textLineText}>Already have an account? </Text>
-        <Text style={styles.SignupUpLink}>Log in</Text>
+        <TouchableOpacity onPress={()=> navigation.navigate('Signin')}>
+          <Text style={styles.SignupUpLink}>Log in</Text>
+        </TouchableOpacity>
       </View>
     </ImageBackground>
   )

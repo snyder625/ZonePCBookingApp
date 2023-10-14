@@ -1,12 +1,13 @@
+import { StatusBar } from 'expo-status-bar';
 import React from 'react'
 import { View, Image, Text, StyleSheet, TextInput, TouchableOpacity, ImageBackground, Dimensions} from 'react-native';
 
 const {width, height} = Dimensions.get('screen')
 
-const Login = () => {
-
+const Login = ({navigation}) => {
   return (
     <ImageBackground source={require('../../assets/images/Background.png')} style={styles.container} resizeMode="cover">
+      <StatusBar style='light' />
       <Image style={{alignSelf: 'center'}} source={require('../../assets/images/logo.png')}/>
       <Text style={styles.heading}>Welcome to CyberSpot</Text>
 
@@ -31,7 +32,9 @@ const Login = () => {
 
       <View style={styles.textLineContainer}>
         <Text style={styles.textLineText}>Don't have an account?</Text>
-        <Text style={styles.signUpLink}> Sign Up</Text>
+        <TouchableOpacity onPress={()=> navigation.navigate('Signup')}>
+          <Text style={styles.signUpLink}> Sign Up</Text>
+        </TouchableOpacity>
       </View>
     </ImageBackground>
   )

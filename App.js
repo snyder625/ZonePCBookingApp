@@ -1,19 +1,17 @@
 import React, { useCallback } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import Login from "./src/screens/Login"
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
-import { StatusBar } from 'expo-status-bar';
-import Signup from './src/screens/Signup';
-import OTPScreen from './src/screens/OTPScreen';
+import { NavigationContainer } from '@react-navigation/native'
+import { createStackNavigator } from '@react-navigation/stack';
+import { Login, Onboarding, Signup } from './src/screens';
 
-
+const Stack = createStackNavigator();
 // SplashScreen.preventAutoHideAsync();
 
 export default function App() {
 
   const [fontsLoaded] = useFonts({
-    'PoppinsBlack': require('./assets/fonts/Poppins-Black.ttf'),
+    PoppinsBlack: require('./assets/fonts/Poppins-Black.ttf'),
     'PoppinsBlackItalic': require('./assets/fonts/Poppins-BlackItalic.ttf'),
     'PoppinsSemiBoldItalic': require('./assets/fonts/Poppins-SemiBoldItalic.ttf'),
     'PoppinsExtraBold': require('./assets/fonts/Poppins-ExtraBold.ttf'),
@@ -43,18 +41,12 @@ export default function App() {
   }
 
   return (
-    <View style={styles.container}>
-      <StatusBar style="light" />
-      <Signup />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName='Onboarding' screenOptions={{headerShown: false}}>
+        <Stack.Screen name="Signin" component={Login} />
+        <Stack.Screen name="Signup" component={Signup} />
+        <Stack.Screen name="Onboarding" component={Onboarding} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
