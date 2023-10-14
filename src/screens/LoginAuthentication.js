@@ -1,8 +1,9 @@
-import { View, Text, FlatList, TouchableOpacity, Dimensions, ImageBackground } from 'react-native'
+import { View, Text, FlatList, TouchableOpacity, Dimensions, ImageBackground, Image } from 'react-native'
 import React, { useState } from 'react'
 import { Ionicons } from '@expo/vector-icons';
 import { StatusBar } from 'expo-status-bar';
 import { MotiView } from 'moti'
+import { useSelector } from 'react-redux';
 
 const {width} = Dimensions.get('window')
 const dialpad = [1, 2, 3, 4, 5, 6, 7, 8, 9, '', 0, 'del'];
@@ -30,6 +31,7 @@ const Dialpad = ({onPress}) => {
                     <TouchableOpacity
                         disabled={item === ''}
                         onPress={() => onPress(item)}
+                        underlayColor="red"
                     >
                         <View style={{
                             width: dialpadSize,
@@ -55,23 +57,32 @@ const Dialpad = ({onPress}) => {
     )
 }
 
-const LoginAuthentication = () => {
-    const [code, setCode] = useState([])
+const LoginAuthentication = ({navigation}) => {
+    const [code, setCode] = useState([]);
   return (
     <ImageBackground source={require('../../assets/images/Background.png')} resizeMode="cover" style={{flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#000'}}>
         <StatusBar style='light' />
-        <View style={{flexDirection: 'row', gap: pinSpacing * 2, marginBottom: _spacing * 2, height: pinSize * 2, alignItems: 'flex-end'}}>
+        <Image source={require('../../assets/images/logo.png')} style={{width: 70, height: 85}} />
+        <Text style={{fontSize: 24, color: '#fff', marginBottom: _spacing * 0.5}}>Verification Code</Text>
+        <View style={{flexDirection: 'row', gap: pinSpacing * 2, marginBottom: _spacing, height: pinSize * 2, alignItems: 'flex-end'}}>
             {[...Array(pinLength).keys()].map(i => {
-                return <MotiView style={{width: 50, height: 50, backgroundColor: '#3D737F', borderRadius: pinSize, alignItems: 'center', justifyContent: 'center'}}>
+                return <MotiView key={i} style={{width: 50, height: 50, backgroundColor: '#3D737F', borderRadius: pinSize, alignItems: 'center', justifyContent: 'center'}}>
                     <Text style={{color: 'white', fontSize: 24}}>{code[i]}</Text>
                 </MotiView>
             })}
         </View>
+        <TouchableOpacity>
+            <Text style={{fontSize: 16, color: '#074644', marginBottom: _spacing}}>Resend the code</Text>
+        </TouchableOpacity>
         <Dialpad onPress={(item)=> {
             if (item === 'del') {
                 setCode(prevCode => prevCode.slice(0, prevCode.length - 1))
             } else if (typeof item === 'number') {
-                setCode(prevCode => [...prevCode, item])
+                if(code.length < 4) {
+                    setCode(prevCode => [...prevCode, item])
+                } else {
+                    navigation.navigate('Signin');
+                }
             }
             console.log(code)
         }} />

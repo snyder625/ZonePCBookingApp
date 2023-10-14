@@ -3,6 +3,8 @@ import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { Provider } from 'react-redux';
+import store from './src/redux/store'
 import { Login, LoginAuthentication, Onboarding, Signup } from './src/screens';
 
 const Stack = createStackNavigator();
@@ -32,13 +34,15 @@ export default function App() {
   }
 
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName='Onboarding' screenOptions={{headerShown: false}}>
-        <Stack.Screen name="Signin" component={Login} />
-        <Stack.Screen name="Signup" component={Signup} />
-        <Stack.Screen name="Onboarding" component={Onboarding} />
-        <Stack.Screen name="Authentication" component={LoginAuthentication} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <Provider store={store}>
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName='Authentication' screenOptions={{headerShown: false}}>
+          <Stack.Screen name="Signin" component={Login} />
+          <Stack.Screen name="Signup" component={Signup} />
+          <Stack.Screen name="Onboarding" component={Onboarding} />
+          <Stack.Screen name="Authentication" component={LoginAuthentication} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </Provider>
   );
 }

@@ -2,11 +2,14 @@ import { StatusBar } from 'expo-status-bar';
 import React, {useState} from 'react'
 import { View, Image, Text, StyleSheet, TextInput, TouchableOpacity, ImageBackground, Dimensions} from 'react-native';
 import axios from 'axios';
+import { useDispatch } from 'react-redux';
+import { loginFailure, loginStart, loginSuccess } from '../redux/userSlice';
 
 const {width, height} = Dimensions.get('screen')
 
 const Login = ({navigation}) => {
 
+  const dispatch = useDispatch();
   const [userInput, setUserInput] = useState('');
   const [isEmail, setIsEmail] = useState(true);
   const [password, setPassword] = useState('')
@@ -35,10 +38,14 @@ const Login = ({navigation}) => {
   }
 
   axios.post(apiUrl, data)
+    // dispatch(loginStart())
     .then((response) => {
       console.log('Login successful:', response.data);
+      dispatch(loginSuccess(response.data));
     })
     .catch((error) => {
+      dispatch(loginFailure());
+      navigation.navigate('Signup');
       console.error('Login failed:', error);
     });
 
