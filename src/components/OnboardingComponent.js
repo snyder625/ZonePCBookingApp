@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
         alignItems: 'center', 
         justifyContent: 'center', 
         gap: 24, 
-        marginTop: 50
+        // marginTop: 50
     },
     image: {
         width: 250, 
@@ -34,6 +34,7 @@ const styles = StyleSheet.create({
     title: {
         color: 'white', 
         fontSize: 32,
+        fontFamily: 'PoppinsSemiBold'
     },
     subtitle: {
         color: '#fff', 
@@ -41,6 +42,7 @@ const styles = StyleSheet.create({
         fontSize: 18, 
         paddingHorizontal: 16, 
         textAlign: 'center',
+        fontFamily: 'PoppinsLight'
     },
     scrollbar: {
         backgroundColor: '#B3B3B3', 
@@ -48,7 +50,8 @@ const styles = StyleSheet.create({
         width: '50%', 
         borderRadius: 50, 
         overflow: 'hidden', 
-        flexDirection: 'row'
+        flexDirection: 'row',
+        marginTop: 12
     }
 })
 
