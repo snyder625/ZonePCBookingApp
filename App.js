@@ -1,16 +1,17 @@
 import React, { useCallback } from 'react';
 import { useFonts } from 'expo-font';
-import * as SplashScreen from 'expo-splash-screen';
+// import * as SplashScreen from 'expo-splash-screen';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { Provider } from 'react-redux';
-import store from './src/redux/store'
-import { HomeScreen, Login, LoginAuthentication, Onboarding, Signup } from './src/screens';
+import { store, persistor } from './src/redux/store'
+import { PersistGate } from 'redux-persist/integration/react';
+import { HomeScreen, Login, SplashScreen, LoginAuthentication, Onboarding, Signup } from './src/screens';
 
 const Stack = createStackNavigator();
 // SplashScreen.preventAutoHideAsync();
 
-export default function App() {
+function App() {
   const [fontsLoaded] = useFonts({
     // PoppinsBlack: require('./assets/fonts/Poppins-Black.ttf'),
     // PoppinsExtraBold: require('./assets/fonts/Poppins-ExtraBold.ttf'),
@@ -35,15 +36,20 @@ export default function App() {
 
   return (
     <Provider store={store}>
-      <NavigationContainer>
-        <Stack.Navigator initialRouteName='Onboarding' screenOptions={{headerShown: false}}>
-          <Stack.Screen name="Signin" component={Login} />
-          <Stack.Screen name="Signup" component={Signup} />
-          <Stack.Screen name="Onboarding" component={Onboarding} />
-          <Stack.Screen name="Authentication" component={LoginAuthentication} />
-          <Stack.Screen name="Home" component={HomeScreen} />
-        </Stack.Navigator>
-      </NavigationContainer>
+      <PersistGate persistor={persistor} loading={null}>
+        <NavigationContainer>
+          <Stack.Navigator initialRouteName='Splash' screenOptions={{headerShown: false}}>
+            <Stack.Screen name='Splash' component={SplashScreen} />
+            <Stack.Screen name="Signin" component={Login} />
+            <Stack.Screen name="Signup" component={Signup} />
+            <Stack.Screen name="Onboarding" component={Onboarding} />
+            <Stack.Screen name="Authentication" component={LoginAuthentication} />
+            <Stack.Screen name="Home" component={HomeScreen} />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </PersistGate>
     </Provider>
   );
 }
+
+export default App;

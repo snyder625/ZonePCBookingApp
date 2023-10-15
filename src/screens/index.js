@@ -3,6 +3,6 @@ import Login from "./Login";
 import LoginAuthentication from "./LoginAuthentication";
 import Onboarding from "./Onboarding";
 import Signup from "./Signup";
+import SplashScreen from "./SplashScreen";
 
-
-export { Onboarding, HomeScreen, Login, LoginAuthentication, Signup }
+export { SplashScreen, Onboarding, HomeScreen, Login, LoginAuthentication, Signup }

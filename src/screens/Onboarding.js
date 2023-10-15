@@ -26,12 +26,6 @@ const onboardingData = [
 
 const Onboarding = ({navigation}) => {
 
-  // useEffect(() => {
-  //   AsyncStorage.getItem('userToken').then(value => {
-  //     navigation.navigate('Home')
-  //   })
-  // }, []);
-
   return (
     <ImageBackground source={require('../../assets/images/Background.png')} resizeMode='cover' style={styles.backgroundContainer}>
       <StatusBar style='light' />
