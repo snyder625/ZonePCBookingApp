@@ -1,7 +1,8 @@
-import React, { useRef } from 'react'
+import React, { useEffect } from 'react'
 import { View, Text, Image, ImageBackground, FlatList, Dimensions, TouchableOpacity, TextInput, StyleSheet } from 'react-native'
 import { StatusBar } from 'expo-status-bar';
 import OnboardingComponent from '../components/OnboardingComponent';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const {width, height} = Dimensions.get('screen');
 
@@ -24,6 +25,7 @@ const onboardingData = [
 ]
 
 const Onboarding = ({navigation}) => {
+
   return (
     <ImageBackground source={require('../../assets/images/Background.png')} resizeMode='cover' style={styles.backgroundContainer}>
       <StatusBar style='light' />
