@@ -1,10 +1,14 @@
 import React, {useState, useEffect} from 'react'
+import { useDispatch } from 'react-redux';
 import { View, Image, Text, StyleSheet, TextInput, TouchableOpacity, ImageBackground, Dimensions} from 'react-native';
 import axios from 'axios';
+import { signupFailure, signupSuccess } from '../redux/userSlice';
 
 const {width, height} = Dimensions.get('screen')
 
 const Signup = ({navigation}) => {
+
+  const dispatch = useDispatch();
 
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
@@ -21,10 +25,13 @@ const Signup = ({navigation}) => {
       });
 
       console.log('Registration success:', response.data);
+      dispatch(signupSuccess(response.data))
     } catch (error) {
       console.error('Registration error:', error);
+      dispatch(signupFailure())
     }
   }
+  
 
   return (
     <ImageBackground source={require('../../assets/images/Background.png')} style={styles.container} resizeMode="cover">
