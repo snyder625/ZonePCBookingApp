@@ -26,6 +26,7 @@ const Signup = ({navigation}) => {
 
       console.log('Registration success:', response.data);
       dispatch(signupSuccess(response.data))
+      navigation.navigate('Home')
     } catch (error) {
       console.error('Registration error:', error);
       dispatch(signupFailure())
