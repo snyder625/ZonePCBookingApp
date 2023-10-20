@@ -39,7 +39,7 @@ function App() {
     <Provider store={store}>
       <PersistGate persistor={persistor} loading={null}>
         <NavigationContainer>
-          <Stack.Navigator initialRouteName='Verified' screenOptions={{headerShown: false}}>
+          <Stack.Navigator initialRouteName='Home' screenOptions={{headerShown: false}}>
             <Stack.Screen name='Splash' component={SplashScreen} />
             <Stack.Screen name="Signin" component={Login} />
             <Stack.Screen name="Signup" component={Signup} />
