@@ -81,7 +81,7 @@ const VipZone = ({ navigation }) => {
       <View style={styles.imageView} > 
         <Image source={require("../../assets/images/VipZone.png")} style={styles.imageStyle} />
       </View>
-      <Text style={styles.textStyle} >Standard Zone</Text>
+      <Text style={styles.textStyle} >VIP Zone</Text>
 
         <View style={styles.upperContainer}>
             {Array.from({ length: Math.ceil(upperContainerItems.length / 4) }).map((_, rowIndex) => (
