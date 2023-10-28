@@ -8,6 +8,9 @@ import { store, persistor } from './src/redux/store'
 import { PersistGate } from 'redux-persist/integration/react';
 import { HomeScreen, Login, SplashScreen, LoginAuthentication, Onboarding, Signup } from './src/screens';
 import Verified from './src/screens/Verified';
+import StandardZone from './src/screens/StandardZone';
+import VipZone from './src/screens/VipZone';
+import PremiumZone from './src/screens/PremiumZone';
 
 const Stack = createStackNavigator();
 // SplashScreen.preventAutoHideAsync();
@@ -39,7 +42,7 @@ function App() {
     <Provider store={store}>
       <PersistGate persistor={persistor} loading={null}>
         <NavigationContainer>
-          <Stack.Navigator initialRouteName='Home' screenOptions={{headerShown: false}}>
+          <Stack.Navigator initialRouteName='PremiumZone' screenOptions={{headerShown: false}}>
             <Stack.Screen name='Splash' component={SplashScreen} />
             <Stack.Screen name="Signin" component={Login} />
             <Stack.Screen name="Signup" component={Signup} />
@@ -47,6 +50,9 @@ function App() {
             <Stack.Screen name="Authentication" component={LoginAuthentication} />
             <Stack.Screen name="Home" component={HomeScreen} />
             <Stack.Screen name="Verified" component={Verified} />
+            <Stack.Screen name="StandardZone" component={StandardZone} />
+            <Stack.Screen name="VipZone" component={VipZone} />
+            <Stack.Screen name="PremiumZone" component={PremiumZone} />
           </Stack.Navigator>
         </NavigationContainer>
       </PersistGate>
