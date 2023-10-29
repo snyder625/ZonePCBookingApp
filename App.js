@@ -1,26 +1,19 @@
 import React, { useCallback } from 'react';
 import { Ionicons } from '@expo/vector-icons';
-import { View, Text, Pressable } from 'react-native';
+import { Pressable } from 'react-native';
 import { useFonts } from 'expo-font';
-// import * as SplashScreen from 'expo-splash-screen';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { Provider } from 'react-redux';
 import { store, persistor } from './src/redux/store'
 import { PersistGate } from 'redux-persist/integration/react';
-import { HomeScreen, Login, SplashScreen, LoginAuthentication, Onboarding, Signup } from './src/screens';
-import Verified from './src/screens/Verified';
+import { HomeScreen, Login, SplashScreen, LoginAuthentication, Onboarding, Signup, ClubDetails, StandardZone, Verified } from './src/screens';
 import { StatusBar } from 'expo-status-bar';
-import ClubDetails from './src/screens/ClubDetails';
 
 const Stack = createStackNavigator();
-// SplashScreen.preventAutoHideAsync();
 
 function App() {
   const [fontsLoaded] = useFonts({
-    // PoppinsBlack: require('./assets/fonts/Poppins-Black.ttf'),
-    // PoppinsExtraBold: require('./assets/fonts/Poppins-ExtraBold.ttf'),
-    // PoppinsExtraLight: require('./assets/fonts/Poppins-ExtraLight.ttf'),
     DMSansRegular: require('./assets/fonts/DMSans-Regular.ttf'),
     DMSansMedium: require('./assets/fonts/DMSans-Medium.ttf'),
     PoppinsLight: require('./assets/fonts/Poppins-Light.ttf'),
@@ -58,15 +51,16 @@ function App() {
               options={{
                 headerShown: true,
                 headerTransparent: true,
-                title: '',
                 headerTintColor: '#FFFFFF',
+                title: '',
                 headerRight: ()=> (
-                  <Pressable style={{paddingRight: 20}}>
-                    <Ionicons name="heart-outline" size={24} color="white" />
+                  <Pressable style={{marginRight: 12}}>
+                    <Ionicons name="heart-outline" size={24} color="#FFFFFF" />
                   </Pressable>
                 )
               }}
             />
+            <Stack.Screen name="StandardZone" component={StandardZone} />
           </Stack.Navigator>
         </NavigationContainer>
       </PersistGate>

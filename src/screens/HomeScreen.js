@@ -2,7 +2,6 @@ import { View, Text, TouchableOpacity, Image, SafeAreaView, Dimensions, FlatList
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { logout } from '../redux/userSlice'
-import { StatusBar } from 'expo-status-bar'
 import Svg, { Path } from 'react-native-svg';
 import ZoneCard, { zones } from '../components/ZoneCard'
 
@@ -17,7 +16,6 @@ const HomeScreen = ({navigation}) => {
 
   return (
     <SafeAreaView style={{paddingTop: 30, backgroundColor: '#07161B', width: width, height: height, paddingHorizontal: 24}}>
-    <StatusBar style='light' />
       <View style={styles.searchContainer}>
         <View style={styles.searchBtn} >
           <Image source={require('../../assets/images/user.png')} resizeMode="contain" style={styles.searchBtnImage} />

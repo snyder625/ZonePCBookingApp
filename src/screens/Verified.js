@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { StatusBar } from 'expo-status-bar';
 import { View, Image, Text, StyleSheet, TouchableOpacity, ImageBackground, Dimensions } from 'react-native';
 
 const { width, height } = Dimensions.get('screen');
@@ -8,7 +7,6 @@ const Verified = ({ navigation }) => {
  
   return (
     <ImageBackground source={require('../../assets/images/Background.png')} style={styles.container} resizeMode="cover">
-      <StatusBar style='light' />
       <View style={styles.card}>
         <Image source={require('../../assets/images/checkIcon.png')} />
         <Text style={styles.heading}>Success</Text>

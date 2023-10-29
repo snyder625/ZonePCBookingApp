@@ -1,4 +1,3 @@
-import { StatusBar } from 'expo-status-bar';
 import React, {useState} from 'react'
 import { View, Image, Text, StyleSheet, TextInput, TouchableOpacity, ImageBackground, Dimensions} from 'react-native';
 import axios from 'axios';
@@ -52,7 +51,6 @@ const Login = ({navigation}) => {
 
   return (
     <ImageBackground source={require('../../assets/images/Background.png')} style={styles.container} resizeMode="cover">
-      <StatusBar style='light' />
       <Image style={{alignSelf: 'center'}} source={require('../../assets/images/logo.png')}/>
       <Text style={styles.heading}>Welcome to CyberSpot</Text>
 

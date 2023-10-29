@@ -63,7 +63,7 @@ const ZoneCard = ({item, onPress}) => {
           </Svg>
           <Text style={{color: '#FFFFFF'}}>{item.rate} / h</Text>
         </View>
-        <Text style={{color: '#FFFFFF'}}>.</Text>
+        <Text style={{color: '#FFFFFF', fontWeight: 'bold'}}>·</Text>
 
         <View style={{flexDirection: 'row', gap: 3, alignItems: 'center'}}>
           <Text style={{color: '#34A853'}}>{item.available}</Text>

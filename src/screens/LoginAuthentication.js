@@ -1,7 +1,6 @@
 import { View, Text, FlatList, TouchableOpacity, Dimensions, ImageBackground, Image } from 'react-native'
 import React, { useState } from 'react'
 import { Ionicons } from '@expo/vector-icons';
-import { StatusBar } from 'expo-status-bar';
 import { MotiView } from 'moti'
 import { useSelector } from 'react-redux';
 
@@ -61,7 +60,6 @@ const LoginAuthentication = ({navigation}) => {
     const [code, setCode] = useState([]);
   return (
     <ImageBackground source={require('../../assets/images/Background.png')} resizeMode="cover" style={{flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#000'}}>
-        <StatusBar style='light' />
         <Image source={require('../../assets/images/logo.png')} style={{width: 70, height: 85}} />
         <Text style={{fontSize: 24, color: '#fff', marginBottom: _spacing * 0.5}}>Verification Code</Text>
         <View style={{flexDirection: 'row', gap: pinSpacing * 2, marginBottom: _spacing, height: pinSize * 2, alignItems: 'flex-end'}}>
