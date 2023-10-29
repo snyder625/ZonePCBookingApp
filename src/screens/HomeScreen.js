@@ -34,15 +34,15 @@ const HomeScreen = ({navigation}) => {
         </Svg>
         </TouchableOpacity>
       </View>
-      <Text style={{fontSize: 32, color: 'white'}}>Hello, <Text style={{color: '#0BA89D'}}>Anthony</Text></Text>
-      <Text style={{color: 'white', fontSize: 14}}>Choose your PC Club</Text>
+      <Text style={{fontSize: 32, color: 'white', fontFamily: 'DMSansRegular'}}>Hello, <Text style={{color: '#0BA89D'}}>Anthony</Text></Text>
+      <Text style={{color: 'white', fontSize: 14, fontFamily: 'DMSansRegular'}}>Choose your PC Club</Text>
 
       <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{height: 36, marginVertical: 16}}>
         {
           filters.map((item, index)=> {
             return (
               <TouchableOpacity key={index} style={{display: 'flex', paddingHorizontal: 16, backgroundColor: '#074644', marginRight: 6, borderRadius: 48, justifyContent: 'center'}}>
-                <Text style={{color: 'white'}}>{item}</Text>
+                <Text style={{color: 'white', fontFamily: 'PoppinsLight'}}>{item}</Text>
               </TouchableOpacity>
             )
           })
@@ -56,7 +56,6 @@ const HomeScreen = ({navigation}) => {
         showsVerticalScrollIndicator={false}
         ListFooterComponent={()=> <View style={{height: 50}}></View>}
       />
-      {/* <Button onPress={()=> {dispatch(logout()); navigation.replace('Onboarding')}} title='Logout'></Button> */}
     </SafeAreaView>
   )
 }

@@ -4,7 +4,7 @@ import { Ionicons, AntDesign } from '@expo/vector-icons';
 
 const {width} = Dimensions.get('screen')
 
-function ClubDetails() {
+function ClubDetails({navigation}) {
 
   return (
     <ScrollView style={styles.container}>
@@ -95,15 +95,15 @@ function ClubDetails() {
             <AntDesign name="down" size={20} color="#FFFFFF" />
           </View>
           <View style={{backgroundColor: '#074644', padding: 20, gap: 12, marginTop: 12, borderRadius: 12}}>
-            <View style={{backgroundColor: '#0BA89D', padding: 12, borderRadius: 12}}>
+            <TouchableOpacity style={styles.zoneVariantButton} onPress={()=> navigation.navigate('StandardZone')}>
               <Text style={styles.zoneListText}>Standard Zone</Text>
-            </View>
-            <View style={{backgroundColor: '#0BA89D', padding: 12, borderRadius: 12}}>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.zoneVariantButton}>
               <Text style={styles.zoneListText}>VIP Zone</Text>
-            </View>
-            <View style={{backgroundColor: '#0BA89D', padding: 12, borderRadius: 12}}>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.zoneVariantButton}>
               <Text style={styles.zoneListText}>Premium Zone</Text>
-            </View>
+            </TouchableOpacity>
           </View>
         </View>
 
@@ -181,7 +181,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 16,
     paddingVertical: 12,
-    // backgroundColor: 'pink'
   },
   socialMediaColumn: {
     flexDirection: 'column',
@@ -191,7 +190,6 @@ const styles = StyleSheet.create({
   ownerBio: {
     flexDirection: 'row',
     justifyContent: 'center',
-    // backgroundColor: 'red',
     marginLeft: 24
   },
   ownerName: {
@@ -239,6 +237,11 @@ const styles = StyleSheet.create({
     fontFamily: 'DMSansRegular', 
     fontSize: 16,
     textAlign: 'center'
+  },
+  zoneVariantButton: {
+    backgroundColor: '#0BA89D',
+    padding: 12,
+    borderRadius: 12
   }
 })
 

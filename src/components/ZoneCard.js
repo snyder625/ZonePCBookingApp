@@ -36,7 +36,7 @@ const ZoneCard = ({item, onPress}) => {
   return (
     <TouchableOpacity style={styles.container} onPress={onPress}>
       <ImageBackground source={require('../../assets/images/twix-cyber.png')} resizeMode='cover' style={{height: 150, alignItems: 'center', justifyContent: 'center'}}>
-        <Text style={styles.zoneName}>{item.name}</Text>
+        <Text style={{color: '#FFFFFF', fontSize: 24, fontFamily: 'DMSansMedium'}}>{item.name}</Text>
       </ImageBackground>
       <View style={{backgroundColor: '#074644', paddingHorizontal: 8, paddingVertical: 12, flexDirection: 'row', alignItems: 'center', gap: 6}}>
         <Svg width={20} height={20} viewBox="0 0 20 20" fill="none">
@@ -61,7 +61,7 @@ const ZoneCard = ({item, onPress}) => {
               </ClipPath>
             </Defs>
           </Svg>
-          <Text style={{color: '#FFFFFF'}}>{item.rate} / h</Text>
+          <Text style={{color: '#FFFFFF', fontFamily: 'DMSansRegular'}}>{item.rate} / h</Text>
         </View>
         <Text style={{color: '#FFFFFF', fontWeight: 'bold'}}>·</Text>
 
@@ -127,7 +127,7 @@ const ZoneCard = ({item, onPress}) => {
               fill="#0BA89D"
             />
           </Svg>
-          <Text style={{color: '#FFFFFF', fontSize: 20, fontWeight: 700, fontFamily: 'DMSansRegular'}}>{item.rating}</Text>
+          <Text style={{color: '#FFFFFF', fontSize: 20, fontFamily: 'DMSansBold'}}>{item.rating}</Text>
         </View>
       </View>
     </TouchableOpacity>
@@ -140,12 +140,6 @@ const styles = StyleSheet.create({
     borderRadius: 12, 
     marginVertical: 16
   },
-  zoneName: {
-    color: '#FFFFFF', 
-    fontWeight: 'bold', 
-    fontSize: 20,
-    fontFamily: 'DMSansRegular'
-  }
 })
 
 export default ZoneCard

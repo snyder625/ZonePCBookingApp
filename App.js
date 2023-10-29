@@ -16,6 +16,7 @@ function App() {
   const [fontsLoaded] = useFonts({
     DMSansRegular: require('./assets/fonts/DMSans-Regular.ttf'),
     DMSansMedium: require('./assets/fonts/DMSans-Medium.ttf'),
+    DMSansBold: require('./assets/fonts/DMSans-Bold.ttf'),
     PoppinsLight: require('./assets/fonts/Poppins-Light.ttf'),
     PoppinsMedium: require('./assets/fonts/Poppins-Medium.ttf'),
     PoppinsRegular: require('./assets/fonts/Poppins-Regular.ttf'),
@@ -39,7 +40,7 @@ function App() {
       <PersistGate persistor={persistor} loading={null}>
         <StatusBar style='light' />
         <NavigationContainer>
-          <Stack.Navigator initialRouteName='Home' screenOptions={{headerShown: false}}>
+          <Stack.Navigator initialRouteName='Splash' screenOptions={{headerShown: false}}>
             <Stack.Screen name='Splash' component={SplashScreen} />
             <Stack.Screen name="Signin" component={Login} />
             <Stack.Screen name="Signup" component={Signup} />
@@ -57,10 +58,27 @@ function App() {
                   <Pressable style={{marginRight: 12}}>
                     <Ionicons name="heart-outline" size={24} color="#FFFFFF" />
                   </Pressable>
+                ),
+                headerLeft: (props)=> (
+                  <Pressable {...props} style={{ marginLeft: 12 }}>
+                    <Ionicons name="chevron-back" size={24} color="white" />
+                  </Pressable>
                 )
               }}
             />
-            <Stack.Screen name="StandardZone" component={StandardZone} />
+            <Stack.Screen name="StandardZone" component={StandardZone} 
+              options={{
+                headerShown: true,
+                title: '',
+                headerTransparent: true,
+                headerTintColor: '#FFFFFF',
+                headerLeft: (props)=> (
+                  <Pressable {...props} style={{ marginLeft: 12 }}>
+                    <Ionicons name="chevron-back" size={24} color="white" />
+                  </Pressable>
+                )
+              }}
+            />
           </Stack.Navigator>
         </NavigationContainer>
       </PersistGate>

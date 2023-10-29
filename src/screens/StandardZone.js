@@ -72,10 +72,7 @@ const StandardZone = ({ navigation }) => {
     }
   return (
     
-        <ImageBackground source={require('../../assets/images/Background.png')} style={styles.container} resizeMode="cover">
-      <View style={styles.icon}>
-        <Image source={require('../../assets/images/back.png')} />
-      </View>
+    <ImageBackground source={require('../../assets/images/Background.png')} style={styles.container} resizeMode="cover">
       <View style={styles.imageView} > 
         <Image source={require("../../assets/images/standardZone.png")} style={styles.imageStyle} />
       </View>
@@ -140,7 +137,6 @@ const styles = StyleSheet.create({
 
   imageStyle: {
     marginTop: 60,
-    width: 250,
     height: 200,
     borderRadius: 25,
     marginHorizontal: 8
@@ -150,29 +146,28 @@ const styles = StyleSheet.create({
   textStyle: {
     color: 'white',
     textAlign: 'center',
-    marginTop: 20,
-    fontWeight: '300'
+    marginTop: 16,
+    fontSize: 20,
+    fontFamily: 'PoppinsLight'
   },
 
   upperContainer: {
-    marginTop: 20,
-    width: 300,
+    marginTop: 16,
+    width: width * 0.85,
     height: 200,
     backgroundColor: '#074644',
     borderRadius: 12,
     borderColor: '#0BA89D',
     borderWidth: 1
   },
-
   iconWithText: {
     height: 70,
-    width: 70,
+    width: width * 0.2,
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 20
   },
-
   icons: {
     display: 'flex',
     flexDirection: 'row',
@@ -182,7 +177,7 @@ const styles = StyleSheet.create({
 
   bottomContainer: {
     marginTop: 15,
-    width: 300,
+    width: width * 0.85,
     height: 100,
     backgroundColor: '#074644',
     display: 'flex',
@@ -196,7 +191,7 @@ const styles = StyleSheet.create({
   button: {
     alignItems: 'center',
     justifyContent: 'center',
-    width: '80%',
+    width: '85%',
     backgroundColor: '#0BA99F',
     borderRadius: 9,
     marginTop: 25,
