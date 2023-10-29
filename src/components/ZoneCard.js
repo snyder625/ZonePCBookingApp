@@ -32,9 +32,9 @@ export const zones = [
 }
 ];
 
-const ZoneCard = ({item}) => {
+const ZoneCard = ({item, onPress}) => {
   return (
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity style={styles.container} onPress={onPress}>
       <ImageBackground source={require('../../assets/images/twix-cyber.png')} resizeMode='cover' style={{height: 150, alignItems: 'center', justifyContent: 'center'}}>
         <Text style={styles.zoneName}>{item.name}</Text>
       </ImageBackground>
@@ -127,7 +127,7 @@ const ZoneCard = ({item}) => {
               fill="#0BA89D"
             />
           </Svg>
-          <Text style={{color: '#FFFFFF', fontSize: 20, fontWeight: 700}}>{item.rating}</Text>
+          <Text style={{color: '#FFFFFF', fontSize: 20, fontWeight: 700, fontFamily: 'DMSansRegular'}}>{item.rating}</Text>
         </View>
       </View>
     </TouchableOpacity>
@@ -144,7 +144,7 @@ const styles = StyleSheet.create({
     color: '#FFFFFF', 
     fontWeight: 'bold', 
     fontSize: 20,
-    // fontFamily: 'PoppinsRegular'
+    fontFamily: 'DMSansRegular'
   }
 })
 

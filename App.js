@@ -1,4 +1,6 @@
 import React, { useCallback } from 'react';
+import { Ionicons } from '@expo/vector-icons';
+import { View, Text, Pressable } from 'react-native';
 import { useFonts } from 'expo-font';
 // import * as SplashScreen from 'expo-splash-screen';
 import { NavigationContainer } from '@react-navigation/native';
@@ -8,6 +10,8 @@ import { store, persistor } from './src/redux/store'
 import { PersistGate } from 'redux-persist/integration/react';
 import { HomeScreen, Login, SplashScreen, LoginAuthentication, Onboarding, Signup } from './src/screens';
 import Verified from './src/screens/Verified';
+import { StatusBar } from 'expo-status-bar';
+import ClubDetails from './src/screens/ClubDetails';
 
 const Stack = createStackNavigator();
 // SplashScreen.preventAutoHideAsync();
@@ -17,6 +21,8 @@ function App() {
     // PoppinsBlack: require('./assets/fonts/Poppins-Black.ttf'),
     // PoppinsExtraBold: require('./assets/fonts/Poppins-ExtraBold.ttf'),
     // PoppinsExtraLight: require('./assets/fonts/Poppins-ExtraLight.ttf'),
+    DMSansRegular: require('./assets/fonts/DMSans-Regular.ttf'),
+    DMSansMedium: require('./assets/fonts/DMSans-Medium.ttf'),
     PoppinsLight: require('./assets/fonts/Poppins-Light.ttf'),
     PoppinsMedium: require('./assets/fonts/Poppins-Medium.ttf'),
     PoppinsRegular: require('./assets/fonts/Poppins-Regular.ttf'),
@@ -38,6 +44,7 @@ function App() {
   return (
     <Provider store={store}>
       <PersistGate persistor={persistor} loading={null}>
+        <StatusBar style='light' />
         <NavigationContainer>
           <Stack.Navigator initialRouteName='Home' screenOptions={{headerShown: false}}>
             <Stack.Screen name='Splash' component={SplashScreen} />
@@ -47,6 +54,19 @@ function App() {
             <Stack.Screen name="Authentication" component={LoginAuthentication} />
             <Stack.Screen name="Home" component={HomeScreen} />
             <Stack.Screen name="Verified" component={Verified} />
+            <Stack.Screen name="ClubDetails" component={ClubDetails} 
+              options={{
+                headerShown: true,
+                headerTransparent: true,
+                title: '',
+                headerTintColor: '#FFFFFF',
+                headerRight: ()=> (
+                  <Pressable style={{paddingRight: 20}}>
+                    <Ionicons name="heart-outline" size={24} color="white" />
+                  </Pressable>
+                )
+              }}
+            />
           </Stack.Navigator>
         </NavigationContainer>
       </PersistGate>

@@ -54,7 +54,7 @@ const HomeScreen = ({navigation}) => {
       <FlatList 
         data={zones}
         keyExtractor={(_, i)=> i.toString()}
-        renderItem={({item})=> <ZoneCard item={item} />}
+        renderItem={({item})=> <ZoneCard item={item} onPress={()=> navigation.navigate('ClubDetails')} />}
         showsVerticalScrollIndicator={false}
         ListFooterComponent={()=> <View style={{height: 50}}></View>}
       />
