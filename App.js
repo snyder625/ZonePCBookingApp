@@ -7,7 +7,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { Provider } from 'react-redux';
 import { store, persistor } from './src/redux/store'
 import { PersistGate } from 'redux-persist/integration/react';
-import { HomeScreen, Login, SplashScreen, LoginAuthentication, Onboarding, Signup, ClubDetails, StandardZone, Verified } from './src/screens';
+import { HomeScreen, Login, SplashScreen, LoginAuthentication, Onboarding, Signup, ClubDetails, StandardZone, Verified, MapScreen, TimeSelectionScreen, PaymentScreen, SuccessQRScreen, PaymentFailScreen } from './src/screens';
 import { StatusBar } from 'expo-status-bar';
 
 const Stack = createStackNavigator();
@@ -40,7 +40,7 @@ function App() {
       <PersistGate persistor={persistor} loading={null}>
         <StatusBar style='light' />
         <NavigationContainer>
-          <Stack.Navigator initialRouteName='Splash' screenOptions={{headerShown: false}}>
+          <Stack.Navigator initialRouteName='Home' screenOptions={{headerShown: false}}>
             <Stack.Screen name='Splash' component={SplashScreen} />
             <Stack.Screen name="Signin" component={Login} />
             <Stack.Screen name="Signup" component={Signup} />
@@ -79,6 +79,44 @@ function App() {
                 )
               }}
             />
+            <Stack.Screen name="Map" component={MapScreen} 
+              options={{
+                headerShown: true,
+                title: '',
+                headerTransparent: true,
+                headerLeft: (props)=> (
+                  <Pressable {...props} style={{ marginLeft: 12 }}>
+                    <Ionicons name="chevron-back" size={24} color="white" />
+                  </Pressable>
+                )
+              }}
+            />
+            <Stack.Screen name="TimeSelection" component={TimeSelectionScreen} 
+              options={{
+                headerShown: true,
+                title: '',
+                headerTransparent: true,
+                headerLeft: (props)=> (
+                  <Pressable {...props} style={{ marginLeft: 12 }}>
+                    <Ionicons name="chevron-back" size={24} color="white" />
+                  </Pressable>
+                )
+              }}
+            />
+            <Stack.Screen name="Payment" component={PaymentScreen} 
+              options={{
+                headerShown: true,
+                title: '',
+                headerTransparent: true,
+                headerLeft: (props)=> (
+                  <Pressable {...props} style={{ marginLeft: 12 }}>
+                    <Ionicons name="chevron-back" size={24} color="white" />
+                  </Pressable>
+                )
+              }}
+            />
+            <Stack.Screen name="SuccessQR" component={SuccessQRScreen} />
+            <Stack.Screen name="PaymentFailure" component={PaymentFailScreen} />
           </Stack.Navigator>
         </NavigationContainer>
       </PersistGate>
