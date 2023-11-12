@@ -40,7 +40,7 @@ function App() {
       <PersistGate persistor={persistor} loading={null}>
         <StatusBar style='light' />
         <NavigationContainer>
-          <Stack.Navigator initialRouteName='TimeSelection' screenOptions={{headerShown: false}}>
+          <Stack.Navigator initialRouteName='PaymentFailure' screenOptions={{headerShown: false}}>
             <Stack.Screen name='Splash' component={SplashScreen} />
             <Stack.Screen name="Signin" component={Login} />
             <Stack.Screen name="Signup" component={Signup} />
