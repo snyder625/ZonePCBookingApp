@@ -28,6 +28,7 @@ const userSlice = createSlice({
             state.error = true;
         },
         logout: (state) => {
+            console.log("Logout Triggered")
             AsyncStorage.removeItem('userToken');
             return initialState
         },

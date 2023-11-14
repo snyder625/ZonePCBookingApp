@@ -2,7 +2,8 @@ import { View, Text, ImageBackground, StyleSheet, Dimensions, Image, TouchableOp
 import React from 'react'
 
 const { width, height } = Dimensions.get('screen');
-const PaymentScreen = () => {
+
+const PaymentScreen = ({navigation}) => {
   return (
     <ImageBackground source={require('../../assets/images/Background.png')} style={styles.container} resizeMode="cover">
       <View>
@@ -16,7 +17,7 @@ const PaymentScreen = () => {
       </View>
 
       <View style={styles.card}>
-        <TouchableOpacity style={styles.timeVariantBtn}>
+        <TouchableOpacity style={styles.timeVariantBtn} onPress={()=> navigation.navigate('SuccessQR')}>
         <Text style={styles.timeBtnText}>Перейти к оплате</Text><Image style={{marginHorizontal: '4%'}} source={require('../../assets/images/kaspi_yellow.png')} />
         <Text style={styles.timeBtnText2} >Kaspi.kz</Text>
         </TouchableOpacity>

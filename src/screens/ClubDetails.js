@@ -108,7 +108,7 @@ function ClubDetails({navigation}) {
         </View>
 
         {/* Reserve Button */}
-        <TouchableOpacity style={styles.reserveNowButton}>
+        <TouchableOpacity style={styles.reserveNowButton} onPress={()=> navigation.navigate('Map')}>
           <Text style={{color: '#FFFFFF', fontSize: 20, fontFamily: 'PoppinsRegular'}}>Reserve Now</Text>
           <AntDesign name="arrowright" size={26} color="#FFFFFF" />
         </TouchableOpacity>
@@ -228,8 +228,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingHorizontal: 12,
-    paddingVertical: 8,
+    paddingHorizontal: 16,
+    paddingVertical: 10,
     borderRadius: 12,
   },
   zoneListText: {

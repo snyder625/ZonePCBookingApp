@@ -19,7 +19,7 @@ const options = [
   }
 ];
 
-const MapScreen = () => {
+const MapScreen = ({navigation}) => {
   return (
     <ImageBackground source={require('../../assets/images/Background.png')} style={styles.container} resizeMode="cover">
       <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{maxHeight: 50, marginVertical: 16, position: 'absolute', top: 25}}>
@@ -34,9 +34,9 @@ const MapScreen = () => {
         }
       </ScrollView>
 
-      <Image source={require('../../assets/images/map.png')} style={{marginBottom: 16}}/>
+      <Image source={require('../../assets/images/map.png')} style={{marginBottom: 6}}/>
 
-      <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{maxHeight: 40, marginVertical: 16}}>
+      <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{maxHeight: 40, marginVertical: 8}}>
         {
           options.map((option, index)=> {
             return (
@@ -48,14 +48,18 @@ const MapScreen = () => {
         }
       </ScrollView>
 
-      <View style={{backgroundColor: '#074644', width: '80%', alignItems: 'center', gap: 8, paddingVertical: 16, elevation: 4, borderRadius: 16}}>
+      <View style={{backgroundColor: '#074644', width: '70%', alignItems: 'center', gap: 4, paddingVertical: 16, elevation: 4, borderRadius: 16}}>
         <Text style={{color: 'white', fontFamily: 'PoppinsMedium', fontSize: 18}}>Selected Seat - 14</Text>
       </View>
 
-      <View style={{backgroundColor: '#074644', width: '80%', alignItems: 'center', gap: 8, paddingVertical: 16, elevation: 4, borderRadius: 16}}>
+      <View style={{backgroundColor: '#074644', width: '70%', alignItems: 'center', gap: 4, paddingVertical: 16, elevation: 4, borderRadius: 16}}>
         <Text style={{color: 'white', fontFamily: 'DMSansRegular', fontSize: 18}}>Standard Zone</Text>
         <Text style={{color: '#4BB468', fontSize: 13, fontFamily: 'PoppinsRegular'}}>Available</Text>
       </View>
+
+      <TouchableOpacity style={styles.reserveNowButton} onPress={()=> navigation.navigate('Payment')}>
+          <Text style={{color: '#FFFFFF', fontSize: 20, fontFamily: 'PoppinsRegular'}}>Pay</Text>
+      </TouchableOpacity>
     </ImageBackground>
   )
 }
@@ -67,9 +71,19 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
     backgroundColor: '#07161B',
     position: 'relative',
-    gap: 20,
-    paddingBottom: 30
-  }
+    gap: 16,
+    paddingBottom: 16
+  },
+  reserveNowButton: {
+    backgroundColor: '#0BA89D',
+    width: '90%',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingHorizontal: 16,
+    paddingVertical: 10,
+    borderRadius: 12,
+  },
 })
 
 export default MapScreen

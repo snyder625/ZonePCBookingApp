@@ -103,9 +103,9 @@ const StandardZone = ({ navigation }) => {
         </View>
 
         <TouchableOpacity style={styles.button} >
-        <Text style={styles.butonText}>Reserve Now</Text>
-      </TouchableOpacity>
-      </ImageBackground>
+          <Text style={styles.butonText} onPress={()=> navigation.navigate('Map')}>Reserve Now</Text>
+        </TouchableOpacity>
+    </ImageBackground>
 
   );
 }

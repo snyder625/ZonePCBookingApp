@@ -49,12 +49,17 @@ const HomeScreen = ({navigation}) => {
         }
       </ScrollView>
 
+      <TouchableOpacity onPress={()=> dispatch(logout())}>
+        <Text style={{color: 'white'}}>Logout</Text>
+      </TouchableOpacity>
       <FlatList 
         data={zones}
         keyExtractor={(_, i)=> i.toString()}
         renderItem={({item})=> <ZoneCard item={item} onPress={()=> navigation.navigate('ClubDetails')} />}
         showsVerticalScrollIndicator={false}
-        ListFooterComponent={()=> <View style={{height: 50}}></View>}
+        ListFooterComponent={()=> <TouchableOpacity style={{alignItems: 'center', marginBottom: 75, backgroundColor: '#074644', borderRadius: 24, marginHorizontal: 100, paddingVertical: 10}} onPress={()=> {dispatch(logout()); navigation.navigate('Signin')}}>
+          <Text style={{color: 'white'}}>Logout</Text>
+        </TouchableOpacity>}
       />
     </SafeAreaView>
   )

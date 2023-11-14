@@ -5799,11 +5799,6 @@
     "lodash" "^4.17.21"
     "prop-types" "^15.7.2"
 
-"react-native-linear-gradient@^2.8.3":
-  "integrity" "sha512-KflAXZcEg54PXkLyflaSZQ3PJp4uC4whM7nT/Uot9m0e/qxFV3p6uor1983D1YOBJbJN7rrWdqIjq0T42jOJyA=="
-  "resolved" "https://registry.npmjs.org/react-native-linear-gradient/-/react-native-linear-gradient-2.8.3.tgz"
-  "version" "2.8.3"
-
 "react-native-paper@^5.11.1":
   "integrity" "sha512-axqRTagGL8LtuYh172cx2Q2THOVJ3PTpPjCKhL5ECRdpJs2ceiboVecSiOIBuO3H7dVpaneptBA0vJr9HeVHwg=="
   "resolved" "https://registry.npmjs.org/react-native-paper/-/react-native-paper-5.11.1.tgz"
