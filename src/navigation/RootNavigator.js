@@ -1,46 +1,15 @@
-import React, { useCallback } from 'react';
 import { Ionicons } from '@expo/vector-icons';
 import { Pressable } from 'react-native';
-import { useFonts } from 'expo-font';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { Provider } from 'react-redux';
-import { store, persistor } from './src/redux/store'
-import { PersistGate } from 'redux-persist/integration/react';
 import { Login, SplashScreen, LoginAuthentication, Onboarding, Signup, ClubDetails, StandardZone, Verified, MapScreen, TimeSelectionScreen, PaymentScreen, SuccessQRScreen, PaymentFailScreen, Notifications } from './src/screens';
-import { StatusBar } from 'expo-status-bar';
-import BottomTabBar from './src/navigation/BottomTabBar';
+import BottomTabBar from './BottomTabBar';
 
 const Stack = createStackNavigator();
 
-function App() {
-  const [fontsLoaded] = useFonts({
-    DMSansRegular: require('./assets/fonts/DMSans-Regular.ttf'),
-    DMSansMedium: require('./assets/fonts/DMSans-Medium.ttf'),
-    DMSansBold: require('./assets/fonts/DMSans-Bold.ttf'),
-    PoppinsLight: require('./assets/fonts/Poppins-Light.ttf'),
-    PoppinsMedium: require('./assets/fonts/Poppins-Medium.ttf'),
-    PoppinsRegular: require('./assets/fonts/Poppins-Regular.ttf'),
-    PoppinsSemiBold: require('./assets/fonts/Poppins-SemiBold.ttf'),
-  });
-
-  const onLayoutRootView = useCallback(async () => {
-    console.log('Fonts Loading...');
-    if (fontsLoaded) {
-      await SplashScreen.hideAsync();
-      console.log('Fonts Loaded');
-    }
-  }, [fontsLoaded]);
-
-  if (!fontsLoaded) {
-    return null;
-  }
-
+function RootNavigator() {
   return (
-    <Provider store={store}>
-      <PersistGate persistor={persistor} loading={null}>
-        <StatusBar style='light' />
-        <NavigationContainer>
+    <NavigationContainer>
           <Stack.Navigator initialRouteName='Home' screenOptions={{headerShown: false}}>
             <Stack.Screen name='Splash' component={SplashScreen} />
             <Stack.Screen name="Signin" component={Login} />
@@ -135,10 +104,8 @@ function App() {
             <Stack.Screen name="SuccessQR" component={SuccessQRScreen} />
             <Stack.Screen name="PaymentFailure" component={PaymentFailScreen} />
           </Stack.Navigator>
-        </NavigationContainer>
-      </PersistGate>
-    </Provider>
+    </NavigationContainer>
   );
 }
 
-export default App;
+export default RootNavigator;

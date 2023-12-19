@@ -15,5 +15,7 @@ import PaymentScreen from "./PaymentScreen";
 import PaymentFailScreen from "./PaymentFailScreen";
 import SuccessQRScreen from "./SuccessQRScreen";
 import TimeSelectionScreen from "./TimeSelectionScreen";
+import Reservations from "./Reservations";
+import Notifications from "./Notifications";
 
-export { SplashScreen, Onboarding, HomeScreen, Login, LoginAuthentication, Signup, Verified, ClubDetails, StandardZone, VipZone, PremiumZone, MapScreen, PaymentScreen, PaymentFailScreen, SuccessQRScreen, TimeSelectionScreen }
+export { SplashScreen, Onboarding, HomeScreen, Reservations, Notifications, Login, LoginAuthentication, Signup, Verified, ClubDetails, StandardZone, VipZone, PremiumZone, MapScreen, PaymentScreen, PaymentFailScreen, SuccessQRScreen, TimeSelectionScreen }
