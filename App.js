@@ -9,6 +9,10 @@ import { store, persistor } from './src/redux/store'
 import { PersistGate } from 'redux-persist/integration/react';
 import { HomeScreen, Login, SplashScreen, LoginAuthentication, Onboarding, Signup, ClubDetails, StandardZone, Verified, MapScreen, TimeSelectionScreen, PaymentScreen, SuccessQRScreen, PaymentFailScreen } from './src/screens';
 import { StatusBar } from 'expo-status-bar';
+import FavoriteSpots from './src/screens/FavoriteSpots';
+import ReservationsBooking from './src/screens/ReservationsBooking';
+import RatingScreen from './src/screens/RatingScreen';
+import ProfileScreen from './src/ProfileScreen';
 
 const Stack = createStackNavigator();
 
@@ -40,7 +44,7 @@ function App() {
       <PersistGate persistor={persistor} loading={null}>
         <StatusBar style='light' />
         <NavigationContainer>
-          <Stack.Navigator initialRouteName='Splash' screenOptions={{headerShown: false}}>
+          <Stack.Navigator initialRouteName='ProfileScreen' screenOptions={{headerShown: false}}>
             <Stack.Screen name='Splash' component={SplashScreen} />
             <Stack.Screen name="Signin" component={Login} />
             <Stack.Screen name="Signup" component={Signup} />
@@ -48,7 +52,40 @@ function App() {
             <Stack.Screen name="Authentication" component={LoginAuthentication} />
             <Stack.Screen name="Home" component={HomeScreen} />
             <Stack.Screen name="Verified" component={Verified} />
+            <Stack.Screen name="FavoriteSpots" component={FavoriteSpots} />
+            <Stack.Screen name="Rating" component={RatingScreen} />
+            <Stack.Screen name="ProfileScreen" component={ProfileScreen}
+            options={{
+              headerShown: true,
+              headerTransparent: true,
+              headerTintColor: '#FFFFFF',
+              title: '',
+              
+              headerLeft: (props)=> (
+                <Pressable {...props} style={{ marginLeft: 12 }}>
+                  <Ionicons name="chevron-back" size={24} color="white" />
+                </Pressable>
+              )
+            }} />
             <Stack.Screen name="ClubDetails" component={ClubDetails} 
+              options={{
+                headerShown: true,
+                headerTransparent: true,
+                headerTintColor: '#FFFFFF',
+                title: '',
+                headerRight: ()=> (
+                  <Pressable style={{marginRight: 12}}>
+                    <Ionicons name="heart-outline" size={24} color="#FFFFFF" />
+                  </Pressable>
+                ),
+                headerLeft: (props)=> (
+                  <Pressable {...props} style={{ marginLeft: 12 }}>
+                    <Ionicons name="chevron-back" size={24} color="white" />
+                  </Pressable>
+                )
+              }}
+            />
+            <Stack.Screen name="ReservationsBooking" component={ReservationsBooking} 
               options={{
                 headerShown: true,
                 headerTransparent: true,
