@@ -16,9 +16,9 @@ const HomeScreen = ({navigation}) => {
   return (
     <SafeAreaView style={{paddingTop: 30, backgroundColor: '#07161B', width: width, height: height, paddingHorizontal: 24}}>
       <View style={styles.searchContainer}>
-        <View style={styles.searchBtn} >
+        <TouchableOpacity style={styles.searchBtn} onPress={() => navigation.navigate('Profile')}>
           <Image source={require('../../assets/images/user.png')} resizeMode="contain" style={styles.searchBtnImage} />
-        </View>
+        </TouchableOpacity>
         
         <View style={styles.searchWrapper}>
           <TextInput style={styles.searchInput} placeholder="Search" placeholderTextColor={'#FFFFFF'} />

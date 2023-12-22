@@ -1,4 +1,3 @@
-// import ClubDetails from "./ClubDetails";
 import ClubDetails from "./ClubDetails";
 import HomeScreen from "./HomeScreen";
 import Login from "./Login";
@@ -15,7 +14,13 @@ import PaymentScreen from "./PaymentScreen";
 import PaymentFailScreen from "./PaymentFailScreen";
 import SuccessQRScreen from "./SuccessQRScreen";
 import TimeSelectionScreen from "./TimeSelectionScreen";
-import Reservations from "./Reservations";
+import ReservationsScreen from "./ReservationsScreen";
 import Notifications from "./Notifications";
+import FavoriteSpots from "./FavoriteSpots";
+import RatingScreen from "./RatingScreen";
+import ReservationsBooking from "./ReservationsBooking";
+import ProfileScreen from "./ProfileScreen";
+import UpdateProfileScreen from "./UpdateProfileScreen";
+import History from "./History";
 
-export { SplashScreen, Onboarding, HomeScreen, Reservations, Notifications, Login, LoginAuthentication, Signup, Verified, ClubDetails, StandardZone, VipZone, PremiumZone, MapScreen, PaymentScreen, PaymentFailScreen, SuccessQRScreen, TimeSelectionScreen }
+export { SplashScreen, Onboarding, HomeScreen, History, ProfileScreen, UpdateProfileScreen, ReservationsScreen, FavoriteSpots, ReservationsBooking, RatingScreen, Notifications, Login, LoginAuthentication, Signup, Verified, ClubDetails, StandardZone, VipZone, PremiumZone, MapScreen, PaymentScreen, PaymentFailScreen, SuccessQRScreen, TimeSelectionScreen }
